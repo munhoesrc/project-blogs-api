@@ -15,6 +15,4 @@ const doTokenAnalysis = (req, res, next) => {
   }
 };
 
-module.exports = {
-  doTokenAnalysis,
-};
+module.exports = doTokenAnalysis;
