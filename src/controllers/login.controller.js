@@ -6,7 +6,8 @@ const loginUser = async (req, res) => {
   const { type, message } = await loginService.autenticationLogin(email, password);
   if (type) return res.status(400).json({ message });
 
-  const token = generateToken(email);
+  const { displayName, email: Email, image, id } = message;
+  const token = generateToken({ displayName, email: Email, image, id });
 
   res.status(200).json({ token });
 };
