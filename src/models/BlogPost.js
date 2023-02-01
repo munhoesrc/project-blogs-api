@@ -21,9 +21,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         foreignKey: true,
       },
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-
       published: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -39,6 +36,8 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
       tableName: "blog_posts",
       underscored: true,
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     }
   );
 

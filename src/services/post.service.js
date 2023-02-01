@@ -1,5 +1,5 @@
 // para chamar no index
-const { BlogPost, PostCategory, Category } = require('../models');
+const { BlogPost, PostCategory, User, Category } = require('../models');
 
 const create = async (userId, { title, content, categoryIds }) => {
   const post = await BlogPost.create({ title, content, userId });
@@ -16,10 +16,50 @@ const create = async (userId, { title, content, categoryIds }) => {
     return { type: 400, message: 'one or more "categoryIds" not found',
   };
 }
+// bulkCreate() O método permite inserir vários registros na tabela do banco de dados com uma única chamada de função.
     await PostCategory.bulkCreate(categoriesId);
-  return { type: 201, message: post };
+      return { type: 201, message: post };
+};
+
+const getAll = async () => {
+  const allPosts = await BlogPost.findAll({
+    include: [
+      {
+        model: User,
+        as: 'user',
+        attributes: { exclude: ['password'] },
+      },
+      {
+        model: Category,
+        as: 'categories',
+        through: { attributes: [] },
+      },
+    ],
+  });
+  return { type: 200, message: allPosts };
+};
+
+const getPostsById = async (userId) => {
+  const post = await BlogPost.findByPk(userId, {
+    include: [
+      {
+        model: User,
+        as: 'user',
+        attributes: { exclude: ['password'] },
+      },
+      {
+        model: Category,
+        as: 'categories',
+        through: { attributes: [] },
+      },
+    ],
+  });
+  if (!post) return { type: 404, message: 'Post does not exit' };
+    return { type: 200, message: post };
 };
 
 module.exports = {
   create,
+  getAll,
+  getPostsById,
 };
