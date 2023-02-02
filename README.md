@@ -1,7 +1,7 @@
 <hr />
 
 <p align="center">
-      <img alt="website mockup" src="https://i.imgur.com/hLVySuU.png" />
+      <img src="bancoDeDados.png" alt="print mysql workbench" />
 </p>
 
 <p align="center">
