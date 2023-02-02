@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-como-usar">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-como-usar">Como usar</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 ## :rocket: Tecnologias
@@ -41,7 +41,7 @@ $ docker exec -it blogs_api bash
 $ docker run debug
 
 ```
-Pronto! Com o servidor rodando na porta 3000 é possível testar requisições do tipo GET, POST, PUT, através de um cliente como [Thunder Client](https://www.thunderclient.com/)
+Pronto! Com o servidor rodando na porta 3000 é possível testar requisições do tipo GET, POST, PUT, através de um cliente como [Thunder Client](https://www.thunderclient.com/) por exemplo.
 
 <br/><br/>
 
