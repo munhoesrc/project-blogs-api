@@ -17,7 +17,7 @@ const create = async (req, res) => {
   const getPostsById = async (req, res) => {
   const { id } = req.params;
   const { type, message } = await postService.getPostsById(id);
-  if (type) return res.status(type).json({ message });
+  if (type !== 200) return res.status(type).json({ message });
   res.status(type).json(message);
 };
 

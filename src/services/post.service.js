@@ -11,8 +11,8 @@ const create = async (userId, { title, content, categoryIds }) => {
     return { type: 400, message: 'one or more "categoryIds" not found' };
   }
   const verifyCategories = categoryIds.map((e) => Category.findByPk(e));
-  const resolve = await Promise.all(verifyCategories);
-  if (resolve.some((i) => i === null)) {
+  const solve = await Promise.all(verifyCategories);
+  if (solve.some((i) => i === null)) {
     return { type: 400, message: 'one or more "categoryIds" not found',
   };
 }
@@ -54,7 +54,7 @@ const getPostsById = async (userId) => {
       },
     ],
   });
-  if (!post) return { type: 404, message: 'Post does not exit' };
+  if (!post) return { type: 404, message: 'Post does not exist' };
     return { type: 200, message: post };
 };
 
